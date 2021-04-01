@@ -1,0 +1,83 @@
+﻿<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.79.0">
+    <title>@ViewBag.Title - KoLeadForm</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/bootstrap-5.0.0-beta1-dist/css/bootstrap.css" rel="stylesheet" />
+
+    <style>
+        body {
+            padding-top: 5rem;
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @@media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">Excel Lead Form</a>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">
+                            Excel Formları
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                            <li class="dropdown-header">CSV Uzantılı</li>
+                            <li role="separator" class="divider"></li>
+                            <li><a class="dropdown-item" asp-controller="Google" asp-action="Index">Google</a></li>
+                            <li><a class="dropdown-item" asp-controller="Youtube" asp-action="Index">Youtube</a></li>
+                            <li><a class="dropdown-item" asp-controller="SmartDisplay" asp-action="Index">SmartDisplay</a></li>
+                            <li><a class="dropdown-item" asp-controller="Manuel" asp-action="Index">Manuel Form Gönderimi</a></li>
+                            <li class="dropdown-header">Xlsx Uzantılı Olanlar</li>
+                            <li role="separator" class="divider"></li>
+                            <li><a class="dropdown-item" asp-controller="Facebook" asp-action="Index">Facebook</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">
+                            Global Formları
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                            <li class="dropdown-header">Xlsx Uzantılı</li>
+                            <li role="separator" class="divider"></li>
+                            <li><a class="dropdown-item" asp-controller="Azeringilisce" asp-action="Index">B</a></li>
+                            <li><a class="dropdown-item" asp-controller="Alingliziah" asp-action="Index">A</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="container body-content">
+            <div class="jumbotron">
+                @RenderBody()
+            </div>
+        </div>
+    </main>
+    <script src="~/bootstrap-5.0.0-beta1-dist/js/bootstrap.js"></script>
+</body>
+</html>

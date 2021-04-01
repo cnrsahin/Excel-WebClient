@@ -1,0 +1,67 @@
+﻿@model FormListViewModel
+@{
+    ViewData["Title"] = "Manuel Formlar";
+}
+
+<div class="card-header text-center mb-3">
+    <h1>Manuel Formlar</h1>
+</div>
+
+<form asp-controller="Manuel" asp-action="Upload" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" id="source" name="source" class="form-control" placeholder="utm_source" />
+            <input type="text" id="content" name="content" class="form-control" placeholder="utm_content" />
+            <input type="text" id="medium" name="medium" class="form-control" placeholder="utm_medium" />
+
+            <input type="number" id="name" name="name" class="form-control" placeholder="İsim kaçıncı sütunda ? (0 ile başlar)" />
+            <input type="number" id="email" name="email" class="form-control" placeholder="Email kaçıncı sütunda ? (0 ile başlar)" />
+            <input type="number" id="phone" name="phone" class="form-control" placeholder="Telefon kaçıncı sütunda ? (0 ile başlar)" />
+            <input type="number" id="skipLine" name="skipLine" class="form-control" placeholder="Verinin başladığı satır ? (1 ile başlar)" />
+        </div>
+        <div class="col-md-4">
+            <input type="file" id="excelFile" name="excelFile" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            <input type="submit" class="btn btn-outline-primary" value="Yükle" />
+        </div>
+    </div>
+</form>
+<div class="table-responsive mt-3">
+    <table class="table">
+        <thead class="table-primary">
+            <tr>
+                <th>#</th>
+                <th>Ad Soyad</th>
+                <th>Email Adres</th>
+                <th>Alan Kodu</th>
+                <th>Telefon Numarası</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var count = 1;
+            }
+
+            @foreach (var studentCandidate in Model.FormDetails)
+            {
+                <tr>
+                    <td>@count</td>
+                    @{
+                        count++;
+                    }
+                    <td>@studentCandidate.Fullname</td>
+                    <td>@studentCandidate.Email</td>
+                    <td>@studentCandidate.AreaCode</td>
+                    <td>@studentCandidate.PhoneNumber</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td><a asp-controller="Manuel" asp-action="Send" class="btn btn-outline-success">Gönder</a></td>
+                <td><a asp-controller="Manuel" asp-action="Index" class="btn btn-outline-danger">Temizle</a></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
